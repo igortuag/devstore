@@ -6,7 +6,7 @@ export default function Home() {
     <div className="grid max-h-[860px] grid-cols-9 grid-rows-3 gap-6">
       <Link
         href="/"
-        className="group col-span-6 row-span-6 rounded-lg bg-zinc-900 overflow-hidden"
+        className="group relative col-span-6 row-span-6 rounded-lg bg-zinc-900 overflow-hidden"
       >
         <Image
           src="/moletom-ai-side.png"
@@ -16,11 +16,18 @@ export default function Home() {
           height={920}
           quality={100}
         />
+
+        <div className="absolute bottom-28 right-28 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
+          <span className="text-sm truncate">Moletom AI Side</span>
+          <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
+            R$ 199,90
+          </span>
+        </div>
       </Link>
 
       <Link
         href="/"
-        className="group col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
+        className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
       >
         <Image
           src="/moletom-java.png"
@@ -30,11 +37,18 @@ export default function Home() {
           height={920}
           quality={100}
         />
+
+        <div className="absolute bottom-10 right-10 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
+          <span className="text-sm truncate">Moletom Java</span>
+          <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
+            R$ 199,90
+          </span>
+        </div>
       </Link>
 
       <Link
         href="/"
-        className="group col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
+        className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
       >
         <Image
           src="/camiseta-dowhile-2022.png"
@@ -44,6 +58,13 @@ export default function Home() {
           height={920}
           quality={100}
         />
+
+        <div className="absolute bottom-10 right-10 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
+          <span className="text-sm truncate">Moletom Java</span>
+          <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
+            R$ 199,90
+          </span>
+        </div>
       </Link>
     </div>
   );
