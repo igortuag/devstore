@@ -1,7 +1,16 @@
+import { api } from "@/app/data/api";
 import { Link } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
+async function getFeaturedProducts() {
+  const response = await api("products/featured");
+  const data = await response.json();
+  return data;
+}
+
+export default async function Home() {
+  const featuredProducts = await getFeaturedProducts();
+
   return (
     <div className="grid max-h-[860px] grid-cols-9 grid-rows-3 gap-6">
       <Link
