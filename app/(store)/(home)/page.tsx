@@ -1,25 +1,26 @@
 import { api } from "@/app/data/api";
+import { Product } from "@/app/data/types/product";
 import { Link } from "lucide-react";
 import Image from "next/image";
 
-async function getFeaturedProducts() {
+async function getFeaturedProducts(): Promise<Product[]> {
   const response = await api("products/featured");
   const data = await response.json();
   return data;
 }
 
 export default async function Home() {
-  const featuredProducts = await getFeaturedProducts();
+  const [highlightedProduct, ...otherProducts] = await getFeaturedProducts();
 
   return (
     <div className="grid max-h-[860px] grid-cols-9 grid-rows-3 gap-6">
       <Link
-        href="/"
+        href={`/product/${highlightedProduct.slug}`}
         className="group relative col-span-6 row-span-6 rounded-lg bg-zinc-900 overflow-hidden"
       >
         <Image
-          src="/moletom-ai-side.png"
-          alt="Moletom AI Side"
+          src={highlightedProduct.image}
+          alt={highlightedProduct.title}
           className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
           width={920}
           height={920}
@@ -27,9 +28,14 @@ export default async function Home() {
         />
 
         <div className="absolute bottom-28 right-28 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
-          <span className="text-sm truncate">Moletom AI Side</span>
+          <span className="text-sm truncate">{highlightedProduct.title}</span>
           <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
-            R$ 199,90
+            {highlightedProduct.price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            })}
           </span>
         </div>
       </Link>
