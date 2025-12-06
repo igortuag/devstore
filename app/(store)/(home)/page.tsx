@@ -4,7 +4,9 @@ import { Link } from "lucide-react";
 import Image from "next/image";
 
 async function getFeaturedProducts(): Promise<Product[]> {
-  const response = await api("products/featured");
+  const response = await api("products/featured", {
+    next: { revalidate: 60 * 60 }
+  });
   const data = await response.json();
   return data;
 }
@@ -40,47 +42,34 @@ export default async function Home() {
         </div>
       </Link>
 
-      <Link
-        href="/"
-        className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
-      >
-        <Image
-          src="/moletom-java.png"
-          className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
-          alt="Moletom Java"
-          width={920}
-          height={920}
-          quality={100}
-        />
+      {otherProducts.map(({ price, id, slug, title }) => (
+        <Link
+          href={`/product/${slug}`}
+          key={id}
+          className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
+        >
+          <Image
+            src="/moletom-java.png"
+            className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
+            alt={title}
+            width={920}
+            height={920}
+            quality={100}
+          />
 
-        <div className="absolute bottom-10 right-10 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
-          <span className="text-sm truncate">Moletom Java</span>
-          <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
-            R$ 199,90
-          </span>
-        </div>
-      </Link>
-
-      <Link
-        href="/"
-        className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
-      >
-        <Image
-          src="/camiseta-dowhile-2022.png"
-          className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
-          alt="Camiseta Do While 2022"
-          width={920}
-          height={920}
-          quality={100}
-        />
-
-        <div className="absolute bottom-10 right-10 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
-          <span className="text-sm truncate">Moletom Java</span>
-          <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
-            R$ 199,90
-          </span>
-        </div>
-      </Link>
+          <div className="absolute bottom-10 right-10 h-12 items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
+            <span className="text-sm truncate">{title}</span>
+            <span className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold">
+              {price.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+              })}
+            </span>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }
