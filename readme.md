@@ -4,7 +4,7 @@ A modern e-commerce demo application built with Next.js 16 for learning purposes
 
 ## 📋 About
 
-DevStore is a sample virtual store project created for educational purposes. It showcases the implementation of a modern e-commerce platform using the latest web technologies, focusing on performance, user experience, and clean code architecture.
+DevStore is a sample virtual store project created for educational purposes. It showcases the implementation of a modern e-commerce platform using the latest web technologies, focusing on performance, user experience, and clean code architecture. Also a bit of styling
 
 ## 🚀 Technologies
 
