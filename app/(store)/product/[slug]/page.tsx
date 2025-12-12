@@ -12,6 +12,16 @@ export default function ProductPage() {
           quality={100}
         />
       </div>
+
+      <div className="flex flex-col justify-center px-12">
+        <h1 className="text-3xl font-bold leading-tight">
+          Moletom Never Stop Learning
+        </h1>
+
+        <p className="mt-2 leading-relaxed text-zinc-400">
+          Moletom fabricado com 88% algodão orgânico e 12% poliéster reciclado.
+        </p>
+      </div>
     </div>
   );
 }
