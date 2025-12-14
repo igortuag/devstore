@@ -21,6 +21,15 @@ export default function ProductPage() {
         <p className="mt-2 leading-relaxed text-zinc-400">
           Moletom fabricado com 88% algodão orgânico e 12% poliéster reciclado.
         </p>
+
+        <div className="mt-8 flex items-center gap-3">
+          <span className="inline-block rounded-full bg-violet-500 px-5 py-2.5 font-semibold">
+            $129
+          </span>
+          <span className="text-sm text-zinc-400">
+            Em 12x s/ juros de $10,75
+          </span>
+        </div>
       </div>
     </div>
   );
