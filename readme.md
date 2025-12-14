@@ -1,6 +1,6 @@
 # DevStore 🛒
 
-A modern e-commerce demo application built with Next.js 16 for learning purposes. This project demonstrates best practices in building a full-stack online store with server-side rendering, API routes, and responsive design.
+A modern e-commerce demo application built with Next.js 16 for learning purposes. This project demonstrates best practices in building a full-stack online store with server-side rendering, API routes, and responsive design. This project come from rocketseat.
 
 ## 📋 About
 
