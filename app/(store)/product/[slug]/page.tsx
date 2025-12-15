@@ -1,6 +1,18 @@
 import Image from "next/image";
 
-export default function ProductPage() {
+interface ProductPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+function getProductBySlug(slug: string) {}
+
+export default function ProductPage({ params }: ProductPageProps) {
+  const { slug } = params;
+
+  const product = getProductBySlug(slug);
+
   return (
     <div className="relative grid max-h-[860px] grid-cols-3">
       <div className="col-span-2 overflow-hidden">
