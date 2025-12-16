@@ -1,3 +1,5 @@
+import { api } from "@/app/data/api";
+import { Product } from "@/app/data/types/product";
 import Image from "next/image";
 
 interface ProductPageProps {
@@ -6,12 +8,16 @@ interface ProductPageProps {
   };
 }
 
-function getProductBySlug(slug: string) {}
+async function getProductBySlug(slug: string): Promise<Product> {
+  const response = await api("product/" + slug);
+  const data = await response.json();
+  return data;
+}
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = params;
 
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   return (
     <div className="relative grid max-h-[860px] grid-cols-3">
