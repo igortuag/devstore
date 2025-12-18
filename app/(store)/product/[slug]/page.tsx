@@ -48,6 +48,44 @@ export default async function ProductPage({ params }: ProductPageProps) {
             Em 12x s/ juros de $10,75
           </span>
         </div>
+
+        <div className="mt-8 space-y-4">
+          <span className="block font-semibold">Sizes</span>
+
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className="flex h-9 w-14 items-center justify-center rounded-full border-zinc-700 bg-zinc-800 text-sm font-semibold text-white"
+            >
+              S
+            </button>
+            <button
+              type="button"
+              className="flex h-9 w-14 items-center justify-center rounded-full border-zinc-700 bg-zinc-800 text-sm font-semibold"
+            >
+              M
+            </button>
+            <button
+              type="button"
+              className="flex h-9 w-14 items-center justify-center rounded-full border-zinc-700 bg-zinc-800 text-sm font-semibold"
+            >
+              L
+            </button>
+            <button
+              type="button"
+              className="flex h-9 w-14 items-center justify-center rounded-full border-zinc-700 bg-zinc-800 text-sm font-semibold"
+            >
+              XL
+            </button>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="text-white mt-8 flex h-12 items-center justify-center rounded-full bg-emerald-600 font-semibold hover:bg-emerald-700"
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );
