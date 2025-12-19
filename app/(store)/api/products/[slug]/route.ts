@@ -1,8 +1,11 @@
-import data from "../products/data.json";
+import data from "../data.json";
+import { z } from "zod";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const slug = searchParams.get("slug");
+export async function GET(
+  request: Request,
+  { params }: { params: { slug: string } }
+) {
+  const slug = z.string().parse(params.slug);
 
   const product = data.products.find((product) => product.slug === slug);
 
