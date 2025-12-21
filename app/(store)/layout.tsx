@@ -1,4 +1,12 @@
+import { Metadata } from "next";
 import Header from "../components/header";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | DevStore",
+    default: "DevStore",
+  }
+};
 
 export default function StoreLayout({
   children
