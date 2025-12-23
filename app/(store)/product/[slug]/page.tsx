@@ -20,6 +20,10 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return [{ slug: "moletom-never-stop-learning" }];
+}
+
 async function getProductBySlug(slug: string): Promise<Product> {
   const response = await api(`/product/${slug}`, {
     next: { revalidate: 60 * 60 }
