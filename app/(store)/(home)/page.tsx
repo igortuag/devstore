@@ -47,14 +47,14 @@ export default async function Home() {
         </div>
       </Link>
 
-      {otherProducts.map(({ price, id, slug, title }) => (
+      {otherProducts.map(({ price, id, slug, title, image }) => (
         <Link
           href={`/product/${slug}`}
           key={id}
           className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden"
         >
           <Image
-            src="/moletom-java.png"
+            src={image}
             className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
             alt={title}
             width={920}
