@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Search() {
+interface SearchProps { 
+  searchParams: {
+    q: string;
+  };
+}
+
+
+export default async function Search({ searchParams }: SearchProps) {
+  const query = searchParams.q;
+
   const { id, title, slug, price, image, description, featured } = {
     id: 3,
     title: "Camiseta DoWhile 2022",
@@ -15,7 +24,7 @@ export default async function Search() {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-sm">
-        Results for &quot;<span className="font-semibold">search</span>&quot;:
+        Results for &quot;<span className="font-semibold">{query}</span>&quot;:
       </p>
 
       <div className="grid grid-cols-3 gap-6">
