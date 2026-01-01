@@ -107,8 +107,6 @@ This is an educational project created for learning purposes. Feel free to use i
 
 As this is a learning project, contributions, suggestions, and feedback are welcome! Feel free to open issues or submit pull requests.
 
-## Test
-
 ---
 
 **Made with ❤️ for learning Next.js and modern web development**
