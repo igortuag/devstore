@@ -1,11 +1,14 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent } from "react";
 
 export default function SearchForm() {
   const { push } = useRouter();
+  const searchParams = useSearchParams();
+
+  const query = searchParams.get("q") || "";
 
   function handleSearch(event: FormEvent) {
     event.preventDefault();
@@ -32,6 +35,7 @@ export default function SearchForm() {
       <input
         name="q"
         placeholder="Find products"
+        defaultValue={query}
         className="bg-transparent outline-none flex-1 text-sm placeholder:text-zinc-500 text-white"
         required
       />
