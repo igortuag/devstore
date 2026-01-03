@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-interface SearchProps { 
+interface SearchProps {
   searchParams: {
     q: string;
   };
 }
 
-
 export default async function Search({ searchParams }: SearchProps) {
   const query = searchParams.q;
+
+  if (!query) {
+    redirect("/");
+  }
 
   const { id, title, slug, price, image, description, featured } = {
     id: 3,
