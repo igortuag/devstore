@@ -1,3 +1,5 @@
+import { api } from "@/app/data/api";
+import { Product } from "@/app/data/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -8,12 +10,22 @@ interface SearchProps {
   };
 }
 
+async function getSearchResults(): Promise<Product[]> {
+  const response = await api("products/search", {
+    next: { revalidate: 60 * 60 }
+  });
+  const data = await response.json();
+  return data;
+}
+
 export default async function Search({ searchParams }: SearchProps) {
   const query = searchParams.q;
 
   if (!query) {
     redirect("/");
   }
+
+  const searchResults = await getSearchResults();
 
   const { id, title, slug, price, image, description, featured } = {
     id: 3,
