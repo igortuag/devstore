@@ -10,8 +10,8 @@ interface SearchProps {
   };
 }
 
-async function getSearchResults(): Promise<Product[]> {
-  const response = await api("products/search", {
+async function getSearchResults(query: string): Promise<Product[]> {
+  const response = await api(`products/search?q=${query}`, {
     next: { revalidate: 60 * 60 }
   });
   const data = await response.json();
@@ -25,7 +25,7 @@ export default async function Search({ searchParams }: SearchProps) {
     redirect("/");
   }
 
-  const searchResults = await getSearchResults();
+  const searchResults = await getSearchResults(query);
 
   return (
     <div className="flex flex-col gap-4">
