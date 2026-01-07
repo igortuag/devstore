@@ -15,7 +15,7 @@ export default function SearchLoading() {
 
       <div className="grid grid-cols-3 gap-4">
         {[...Array(9)].map((_, index) => (
-          <Skeleton key={index} className="h-[300px]" />
+          <Skeleton key={index} className="h-[400px]" />
         ))}
       </div>
     </div>
